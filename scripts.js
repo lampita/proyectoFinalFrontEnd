@@ -1,3 +1,74 @@
+let cartUi = {
+    badge: null,
+    modal: null,
+    closeBtn: null,
+    itemsContainer: null,
+    total: null,
+    feedback: null,
+    finishBtn: null,
+    clearBtn: null
+};
+
+function formatCurrency(value) {
+    return new Intl.NumberFormat('es-AR', {
+        style: 'currency',
+        currency: 'ARS',
+        maximumFractionDigits: 0
+    }).format(value);
+}
+
+function setCartFeedback(message) {
+    if (cartUi.feedback) {
+        cartUi.feedback.textContent = message || '';
+    }
+}
+
+function renderCartModal() {
+    if (!cartUi.itemsContainer || !cartUi.total) return;
+
+    if (!cartItems.length) {
+        cartUi.itemsContainer.innerHTML = '<p class="cart-empty">Tu carrito está vacío por el momento.</p>';
+        cartUi.total.textContent = formatCurrency(0);
+        if (cartUi.finishBtn) cartUi.finishBtn.disabled = true;
+        if (cartUi.clearBtn) cartUi.clearBtn.disabled = true;
+        return;
+    }
+
+    cartUi.itemsContainer.innerHTML = cartItems.map(item => `
+        <article class="cart-item">
+            <div>
+                <h3 class="cart-item-title">${item.show}</h3>
+                <p class="cart-item-meta">${item.sector}</p>
+                <p class="cart-item-meta">${item.fecha}</p>
+            </div>
+            <div class="cart-item-amount">
+                <div class="cart-item-actions">
+                    <button type="button" class="qty-btn" data-cart-action="decrease" data-item-id="${item.id}">−</button>
+                    <span>${item.cantidad_asientos} entradas</span>
+                    <button type="button" class="qty-btn" data-cart-action="increase" data-item-id="${item.id}">+</button>
+                </div>
+                <span>${formatCurrency(item.precio * item.cantidad_asientos)}</span>
+                <button type="button" class="remove-item-btn" data-cart-action="remove" data-item-id="${item.id}">Eliminar</button>
+            </div>
+        </article>
+    `).join('');
+
+    cartUi.total.textContent = formatCurrency(getTotal());
+    if (cartUi.finishBtn) cartUi.finishBtn.disabled = false;
+    if (cartUi.clearBtn) cartUi.clearBtn.disabled = false;
+}
+
+function syncCartUI() {
+    const totalTickets = cartItems.reduce((total, item) => total + (item.cantidad_asientos || 0), 0);
+
+    if (cartUi.badge) {
+        cartUi.badge.textContent = totalTickets;
+        cartUi.badge.style.display = totalTickets > 0 ? 'inline-flex' : 'none';
+    }
+
+    renderCartModal();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const btnPopupOpen = document.getElementById('btn-popup-open');
@@ -8,6 +79,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnRegisterOpen = document.getElementById('btn-register-open');
     const btnRegisterClose = document.getElementById('btn-register-close');
     const registerModal = document.getElementById('register-modal');
+
+    const btnCartOpen = document.getElementById('btn-cart-open');
+    cartUi.badge = document.getElementById('cart-badge');
+    cartUi.modal = document.getElementById('cart-modal');
+    cartUi.closeBtn = document.getElementById('btn-cart-close');
+    cartUi.itemsContainer = document.getElementById('cart-items-container');
+    cartUi.total = document.getElementById('cart-total');
+    cartUi.feedback = document.getElementById('cart-feedback');
+    cartUi.finishBtn = document.getElementById('btn-finish-purchase');
+    cartUi.clearBtn = document.getElementById('btn-clear-cart');
 
 
     if (btnPopupOpen && btnPopupClose && videoPopup) {
@@ -46,6 +127,86 @@ document.addEventListener('DOMContentLoaded', () => {
             buyModal.classList.add('active');
         });
     }
+
+    if (btnCartOpen && cartUi.modal && cartUi.closeBtn) {
+        btnCartOpen.addEventListener('click', () => {
+            setCartFeedback('');
+            renderCartModal();
+            cartUi.modal.classList.add('active');
+        });
+
+        cartUi.closeBtn.addEventListener('click', () => {
+            cartUi.modal.classList.remove('active');
+        });
+    }
+
+    if (cartUi.finishBtn) {
+        cartUi.finishBtn.addEventListener('click', () => {
+            if (!cartItems.length) {
+                setCartFeedback('Tu carrito está vacío.');
+                return;
+            }
+
+            clearCart();
+            setCartFeedback('¡Compra finalizada! Gracias por tu compra.');
+            renderCartModal();
+        });
+    }
+
+    if (cartUi.clearBtn) {
+        cartUi.clearBtn.addEventListener('click', () => {
+            if (!cartItems.length) {
+                setCartFeedback('Tu carrito ya está vacío.');
+                return;
+            }
+
+            clearCart();
+            setCartFeedback('Se vació el carrito.');
+            renderCartModal();
+        });
+    }
+
+    if (cartUi.itemsContainer) {
+        cartUi.itemsContainer.addEventListener('click', (event) => {
+            const button = event.target.closest('[data-cart-action]');
+            if (!button) return;
+
+            const itemId = button.getAttribute('data-item-id');
+            const action = button.getAttribute('data-cart-action');
+
+            if (!itemId) return;
+
+            if (action === 'increase') {
+                const item = cartItems.find(i => i.id === itemId);
+                if (item) {
+                    item.cantidad_asientos += 1;
+                    saveCart();
+                    setCartFeedback('Cantidad actualizada.');
+                }
+            }
+
+            if (action === 'decrease') {
+                const item = cartItems.find(i => i.id === itemId);
+                if (item) {
+                    item.cantidad_asientos -= 1;
+                    if (item.cantidad_asientos <= 0) {
+                        removeItem(itemId);
+                        setCartFeedback('Se eliminó una selección.');
+                    } else {
+                        saveCart();
+                        setCartFeedback('Cantidad actualizada.');
+                    }
+                }
+            }
+
+            if (action === 'remove') {
+                removeItem(itemId);
+                setCartFeedback('Se eliminó la selección.');
+            }
+        });
+    }
+
+    syncCartUI();
 
     // Renderiza el paso 1: selección de estadio
     function mostrarEstadios() {
@@ -229,6 +390,7 @@ if (storedCart) {
 
 function saveCart() {
     localStorage.setItem('shoppingCart', JSON.stringify(cartItems));
+    syncCartUI();
 }
 
 function addItem(item) {

@@ -95,6 +95,172 @@ h3 {
   background-color: rgba(65, 64, 62, 0.05);
 }
 
+.cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  position: relative;
+}
+
+.cart-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding: 0 0.3rem;
+  border-radius: 999px;
+  background-color: #ff4500;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 0.12rem solid #41403e;
+}
+
+.cart-badge:empty {
+  display: none;
+}
+
+.cart-modal-body {
+  max-width: 40rem;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border: 0.18rem solid #41403e;
+  border-radius: 20px 255px 15px 225px / 225px 15px 255px 20px;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.cart-item-title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03rem;
+  color: #41403e;
+  margin-bottom: 0.2rem;
+}
+
+.cart-item-meta {
+  font-size: 0.82rem;
+  color: rgba(65, 64, 62, 0.75);
+}
+
+.cart-item-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  font-weight: 700;
+  color: #41403e;
+  white-space: nowrap;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border: 0.18rem dashed rgba(65, 64, 62, 0.35);
+  border-radius: 20px 255px 15px 225px / 225px 15px 255px 20px;
+  color: rgba(65, 64, 62, 0.7);
+  font-weight: 600;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.9rem;
+  border-top: 0.12rem solid rgba(65, 64, 62, 0.2);
+  font-size: 1rem;
+  color: #41403e;
+}
+
+.cart-summary-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+}
+
+.cart-total {
+  font-size: 1.15rem;
+  color: #ff4500;
+}
+
+.cart-feedback {
+  min-height: 1.2rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ff4500;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.cart-action-btn {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.78rem;
+  margin: 0;
+}
+
+.cart-action-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.qty-btn,
+.remove-item-btn {
+  border: 0.18rem solid #41403e;
+  border-radius: 999px;
+  background-color: #f0f0d8;
+  color: #41403e;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.3rem 0.55rem;
+  min-width: 2rem;
+}
+
+.qty-btn:hover,
+.remove-item-btn:hover {
+  background-color: #ffffff;
+}
+
+.remove-item-btn {
+  color: #b63b1d;
+}
+
 /* SECCIÓN HERO TRIÁNGULOS ENCIMADOS */
 .hero-section {
   position: relative;

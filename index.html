@@ -39,7 +39,12 @@
           <span id="btn-register-open" class="draw-btn" style="cursor: pointer">Registrarse</span>
         </li>
         <li><button type="button" class="draw-btn">Login</button></li>
-        <li><button type="button" class="draw-btn">Carrito</button></li>
+        <li>
+          <button type="button" id="btn-cart-open" class="draw-btn cart-btn">
+            <span>Carrito</span>
+            <span id="cart-badge" class="cart-badge" aria-label="Cantidad de entradas en el carrito">0</span>
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -137,6 +142,23 @@
            <button type="button" class="stadium-btn st-movistar" data-stadium="estadio-movistar" title="Movistar Arena">
              <img src="./images/estadios/movistar.png" alt="Estadio Movistar">
            </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="cart-modal" class="modal-overlay">
+      <div class="modal-body cart-modal-body">
+        <span id="btn-cart-close" class="modal-close-btn">&times;</span>
+        <h2 class="modal-title">Tu Carrito</h2>
+        <div id="cart-items-container" class="cart-items-list"></div>
+        <p id="cart-feedback" class="cart-feedback" aria-live="polite"></p>
+        <div class="cart-summary">
+          <span class="cart-summary-label">Total a pagar</span>
+          <strong id="cart-total" class="cart-total">$0</strong>
+        </div>
+        <div class="cart-actions">
+          <button type="button" id="btn-finish-purchase" class="draw-btn cart-action-btn">Finalizar compra</button>
+          <button type="button" id="btn-clear-cart" class="draw-btn cart-action-btn">Vaciar carrito</button>
         </div>
       </div>
     </div>
