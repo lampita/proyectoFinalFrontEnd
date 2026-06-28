@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tickets Ya - Entradas para Shows</title>
+    <meta
+      name="description"
+      content="Trabajo de pre entrega de front end. Sitio de ventas de entradas para espectáculos musicales de Pop y Rock."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"
+      defer
+    ></script>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="./images/logo-48px.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <nav class="nav-container">
+        <ul class="nav-list">
+          <li class="logo-item">
+            <h2 class="logo">TICKETS YA</h2>
+            <a href="index.html">
+              <img src="./images/logo-48px.png" alt="Logo de Tickets Ya" />
+            </a>
+          </li>
+
+          <li><a href="contacto.html" class="draw-btn">Contacto</a></li>
+          <li>
+            <label
+              for="register-toggle"
+              class="draw-btn"
+              style="cursor: pointer"
+              >Registrarse</label
+            >
+          </li>
+          <li><button type="button" class="draw-btn">Login</button></li>
+          <li><button type="button" class="draw-btn">Carrito</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="layer-triangulo-fondo"></div>
+        <div class="layer-png-principal"></div>
+
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>TICKETS YA</h1>
+            <p>Tus entradas para los mejores shows</p>
+          </div>
+
+          <label for="popup-toggle" class="boton-video-heartbeat">
+            <i class="fa-solid fa-play"></i>
+          </label>
+
+          <a href="#shows" class="boton-cta">
+            <span>Comprar<br />Entradas</span>
+          </a>
+        </div>
+      </section>
+
+      <input type="checkbox" id="popup-toggle" class="popup-checkbox" />
+      <div class="popup-overlay">
+        <div class="popup-body">
+          <label for="popup-toggle" class="popup-close-btn">&times;</label>
+          <div class="video-wrapper">
+            <video controls preload="auto">
+              <source
+                src="./videos/Dua Lipa - Levitating _ 480p.mp4"
+                type="video/mp4"
+              />
+              <track
+                default
+                kind="captions"
+                srclang="es"
+                src="./videos/captions.vtt"
+                label="Español"
+              />
+              Tu navegador no soporta la reproducción de videos.
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <input type="checkbox" id="register-toggle" class="modal-checkbox" />
+      <div class="modal-overlay">
+        <div class="modal-body">
+          <label for="register-toggle" class="modal-close-btn">&times;</label>
+          <h2 class="modal-title">Únete a la Comunidad</h2>
+
+          <form
+            action="https://formspree.io/f/maqknaao"
+            method="POST"
+            class="draw-form"
+          >
+            <div class="form-group">
+              <label class="form-label">Nombre</label>
+              <input
+                type="text"
+                class="draw-input"
+                name="nombre"
+                required
+                placeholder="Tu nombre..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Apellido</label>
+              <input
+                type="text"
+                class="draw-input"
+                name="apellido"
+                required
+                placeholder="Tu apellido..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="draw-input"
+                name="email"
+                required
+                placeholder="ejemplo@correo.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Contraseña</label>
+              <input
+                type="password"
+                class="draw-input"
+                name="password"
+                required
+                placeholder="Mínimo 8 caracteres"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Confirmar Contraseña</label>
+              <input
+                type="password"
+                class="draw-input"
+                name="password-confirm"
+                required
+                placeholder="Repite tu contraseña"
+              />
+            </div>
+
+            <button type="submit" class="draw-btn form-submit-btn">
+              Crear Cuenta
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <p class="footer-copy">
+          &copy; 2026 Tickets Ya. Todos los derechos reservados.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="#" class="social-btn"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="#" class="social-btn"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a href="#" class="social-btn"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
