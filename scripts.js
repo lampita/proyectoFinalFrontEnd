@@ -34,6 +34,32 @@ document.addEventListener('DOMContentLoaded', () => {
             registerModal.classList.remove('active');
         });
     }
+
+    // Referencias al Modal de Compras
+    const btnBuyOpen = document.getElementById('btn-buy-open');
+    const btnBuyClose = document.getElementById('btn-buy-close');
+    const buyModal = document.getElementById('buy-modal');
+
+    if (btnBuyOpen && btnBuyClose && buyModal) {
+        btnBuyOpen.addEventListener('click', (e) => {
+            e.preventDefault();
+            buyModal.classList.add('active');
+        });
+
+        btnBuyClose.addEventListener('click', () => {
+            buyModal.classList.remove('active');
+        });
+    }
+
+    // Funcionalidad de seleccionar estadio en el modal de compras
+    const stadiumBtns = document.querySelectorAll('.stadium-btn');
+    stadiumBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const estadioId = btn.getAttribute('data-stadium');
+            buyModal.classList.remove('active');
+            alert(`Iniciando compra para: ${estadioId}\n(A implementar paso siguiente)`);
+        });
+    });
 });
 
 // --- Lógica del Carrito de Compras ---

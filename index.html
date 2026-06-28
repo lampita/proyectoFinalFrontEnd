@@ -59,9 +59,9 @@
           <i class="fa-solid fa-play"></i>
         </span>
 
-        <a href="#shows" class="boton-cta">
+        <button type="button" id="btn-buy-open" class="boton-cta">
           <span>Comprar<br />Entradas</span>
-        </a>
+        </button>
       </div>
     </section>
 
@@ -114,6 +114,30 @@
             Crear Cuenta
           </button>
         </form>
+      </div>
+    </div>
+
+    <!-- MODAL DE COMPRAS -->
+    <div id="buy-modal" class="modal-overlay">
+      <div class="modal-body buy-modal-body">
+        <span id="btn-buy-close" class="modal-close-btn">&times;</span>
+        <h2 class="modal-title">Comprar Entradas</h2>
+        
+        <div class="stadiums-grid">
+           <button type="button" class="stadium-btn st-river" data-stadium="estadio-river" title="Estadio River">
+             <img src="./images/estadios/river.png" alt="Estadio River">
+           </button>
+           
+           <button type="button" class="st-center">Elige<br>Sede</button>
+           
+           <button type="button" class="stadium-btn st-velez" data-stadium="estadio-velez" title="Estadio Vélez">
+             <img src="./images/estadios/velez.png" alt="Estadio Velez">
+           </button>
+           
+           <button type="button" class="stadium-btn st-movistar" data-stadium="estadio-movistar" title="Movistar Arena">
+             <img src="./images/estadios/movistar.png" alt="Estadio Movistar">
+           </button>
+        </div>
       </div>
     </div>
   </main>
