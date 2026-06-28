@@ -263,10 +263,6 @@ h3 {
 }
 
 /* POPUP */
-.popup-checkbox {
-  display: none;
-}
-
 .popup-overlay {
   position: fixed;
   top: 0rem;
@@ -309,12 +305,12 @@ h3 {
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.popup-checkbox:checked ~ .popup-overlay {
+.popup-overlay.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-.popup-checkbox:checked ~ .popup-overlay .popup-body {
+.popup-overlay.active .popup-body {
   transform: scale(1);
 }
 
@@ -356,10 +352,6 @@ h3 {
 }
 
 /* MODAL DE REGISTRO */
-.modal-checkbox {
-  display: none;
-}
-
 .modal-overlay {
   position: fixed;
   top: 0rem;
@@ -402,12 +394,12 @@ h3 {
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.modal-checkbox:checked ~ .modal-overlay {
+.modal-overlay.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-.modal-checkbox:checked ~ .modal-overlay .modal-body {
+.modal-overlay.active .modal-body {
   transform: scale(1);
 }
 
