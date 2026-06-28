@@ -588,6 +588,192 @@ footer {
   max-width: 45rem;
 }
 
+.buy-modal-subtitle {
+  text-align: center;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #41403e;
+  margin-top: -0.75rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.75;
+  letter-spacing: 0.02rem;
+}
+
+.fechas-grid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.fecha-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: transparent;
+  border: 0.18rem solid #41403e;
+  border-radius: 20px 255px 15px 225px / 225px 15px 255px 20px;
+  padding: 2rem 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0.37rem 0.5rem 0rem rgba(65, 64, 62, 0.15);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #41403e;
+}
+
+.fecha-btn i {
+  font-size: 4rem;
+  color: #41403e;
+  transition: color 0.2s ease;
+}
+
+.fecha-btn .fecha-dia {
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.fecha-btn .fecha-horario {
+  font-weight: 600;
+  font-size: 0.85rem;
+  opacity: 0.65;
+}
+
+.fecha-btn:hover {
+  transform: translate(0.06rem, 0.12rem);
+  box-shadow: 0.12rem 0.18rem 0rem rgba(65, 64, 62, 0.3);
+  background-color: rgba(65, 64, 62, 0.05);
+}
+
+.fecha-btn:hover i {
+  color: #ff4500;
+}
+
+/* PASO 3: UBICACIONES */
+.ubicaciones-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  max-height: 65vh;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.ubicaciones-img {
+  width: 100%;
+  max-width: 28rem;
+  border: 0.18rem solid #41403e;
+  border-radius: 0.75rem;
+  object-fit: contain;
+}
+
+.sectores-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.sector-card {
+  background-color: rgba(65, 64, 62, 0.04);
+  border: 0.18rem solid #41403e;
+  border-radius: 20px 255px 15px 225px / 225px 15px 255px 20px;
+  padding: 1rem 1.25rem;
+  min-width: 13rem;
+  flex: 1 1 13rem;
+  max-width: 20rem;
+}
+
+.sector-titulo {
+  font-family: "Anton", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: #41403e;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 0.12rem solid rgba(65, 64, 62, 0.2);
+}
+
+.subsector-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem 0;
+  border-bottom: 0.08rem solid rgba(65, 64, 62, 0.1);
+}
+
+.subsector-card:last-child {
+  border-bottom: none;
+}
+
+.subsector-card.agotado {
+  opacity: 0.45;
+}
+
+.subsector-nombre {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03rem;
+  color: #41403e;
+}
+
+.subsector-precio {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #41403e;
+}
+
+.subsector-disp {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(65, 64, 62, 0.55);
+  margin-bottom: 0.35rem;
+}
+
+.subsector-acciones {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.cantidad-input {
+  width: 3.5rem;
+  padding: 0.35rem 0.5rem;
+  border: 0.18rem solid #41403e;
+  border-radius: 255px 12px 225px 15px / 15px 225px 12px 255px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #41403e;
+  background-color: #fafdff;
+  text-align: center;
+  outline: none;
+}
+
+.add-cart-btn {
+  font-size: 0.78rem;
+  padding: 0.4rem 0.75rem;
+  margin: 0;
+}
+
+.add-cart-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .stadiums-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
