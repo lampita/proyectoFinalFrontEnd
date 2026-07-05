@@ -16,6 +16,13 @@ const baseDatosEstadios = {
                             "balcon": { nombre: "Balcón", precio: 120000, asientosDisponibles: 5 },
                             "tribuna": { nombre: "Tribuna Baja", precio: 90000, asientosDisponibles: 80 }
                         }
+                    }, "platea-oeste": {
+                        nombre: "Platea Oeste",
+                        subSectores: {
+                            "vip": { nombre: "VIP Alta", precio: 150000, asientosDisponibles: 45 },
+                            "balcon": { nombre: "Balcón", precio: 120000, asientosDisponibles: 20 },
+                            "tribuna": { nombre: "Tribuna Baja", precio: 90000, asientosDisponibles: 110 }
+                        }
                     },
                     "campo": {
                         nombre: "Campo General",
@@ -105,6 +112,13 @@ const baseDatosEstadios = {
                             "vip": { nombre: "VIP Alta", precio: 150000, asientosDisponibles: 0 },
                             "balcon": { nombre: "Balcón", precio: 120000, asientosDisponibles: 5 },
                             "tribuna": { nombre: "Tribuna Baja", precio: 90000, asientosDisponibles: 80 }
+                        }
+                    }, "platea-oeste": {
+                        nombre: "Platea Oeste",
+                        subSectores: {
+                            "vip": { nombre: "VIP Alta", precio: 150000, asientosDisponibles: 45 },
+                            "balcon": { nombre: "Balcón", precio: 120000, asientosDisponibles: 20 },
+                            "tribuna": { nombre: "Tribuna Baja", precio: 90000, asientosDisponibles: 110 }
                         }
                     },
                     "campo": {

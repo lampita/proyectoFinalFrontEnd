@@ -23,6 +23,18 @@ function setCartFeedback(message) {
     }
 }
 
+function irAlInicioYCarrito(modal) {
+    if (modal) {
+        modal.classList.remove('active');
+    }
+    const path = window.location.pathname;
+    if (!path.endsWith('index.html') && path !== '/' && path !== '') {
+        window.location.href = 'index.html';
+    } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
 function renderCartModal() {
     if (!cartUi.itemsContainer || !cartUi.total) return;
 
@@ -114,6 +126,13 @@ document.addEventListener('DOMContentLoaded', () => {
         btnRegisterClose.addEventListener('click', () => {
             registerModal.classList.remove('active');
         });
+
+        const btnRegisterHome = document.getElementById('btn-register-home');
+        if (btnRegisterHome) {
+            btnRegisterHome.addEventListener('click', () => {
+                irAlInicioYCarrito(registerModal);
+            });
+        }
     }
 
     // Referencias al Modal de Compras
@@ -138,6 +157,13 @@ document.addEventListener('DOMContentLoaded', () => {
         cartUi.closeBtn.addEventListener('click', () => {
             cartUi.modal.classList.remove('active');
         });
+
+        const btnCartHome = document.getElementById('btn-cart-home');
+        if (btnCartHome) {
+            btnCartHome.addEventListener('click', () => {
+                irAlInicioYCarrito(cartUi.modal);
+            });
+        }
     }
 
     if (cartUi.finishBtn) {
@@ -212,7 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarEstadios() {
         const modalBody = buyModal.querySelector('.modal-body');
         modalBody.innerHTML = `
-            <span id="btn-buy-close" class="modal-close-btn">&times;</span>
+            <div class="modal-nav-container">
+                <span id="btn-buy-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
+                <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+            </div>
             <h2 class="modal-title">Comprar Entradas</h2>
             <div class="stadiums-grid">
                 <button type="button" class="stadium-btn st-river" data-stadium="estadio-river" title="Estadio River">
@@ -232,6 +261,14 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBody.querySelector('#btn-buy-close').addEventListener('click', () => {
             buyModal.classList.remove('active');
         });
+
+        // Botón home
+        const btnHome = modalBody.querySelector('#btn-buy-home');
+        if (btnHome) {
+            btnHome.addEventListener('click', () => {
+                irAlInicioYCarrito(buyModal);
+            });
+        }
 
         // Botones de estadios: van al paso 2
         modalBody.querySelectorAll('.stadium-btn').forEach(btn => {
@@ -258,7 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
 
         modalBody.innerHTML = `
-            <span id="btn-buy-close" class="modal-close-btn">&times;</span>
+            <div class="modal-nav-container">
+                <span id="btn-buy-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
+                <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+            </div>
             <h2 class="modal-title">Seleccionar Fecha</h2>
             <p class="buy-modal-subtitle">${estadio.show}</p>
             <div class="fechas-grid">
@@ -270,6 +310,14 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBody.querySelector('#btn-buy-close').addEventListener('click', () => {
             mostrarEstadios();
         });
+
+        // Botón home
+        const btnHome = modalBody.querySelector('#btn-buy-home');
+        if (btnHome) {
+            btnHome.addEventListener('click', () => {
+                irAlInicioYCarrito(buyModal);
+            });
+        }
 
         // Listeners de las fechas → paso 3
         modalBody.querySelectorAll('.fecha-btn').forEach(fechaBtn => {
@@ -330,7 +378,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const sectoresHTML = buildSectorCards(fechaData.sectores);
 
         modalBody.innerHTML = `
-            <span id="btn-buy-close" class="modal-close-btn">&times;</span>
+            <div class="modal-nav-container">
+                <span id="btn-buy-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
+                <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+            </div>
             <h2 class="modal-title">Elige Ubicación</h2>
             <p class="buy-modal-subtitle">${estadio.show} · ${fechaData.dia} · ${fechaData.horario}</p>
 
@@ -346,6 +397,14 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBody.querySelector('#btn-buy-close').addEventListener('click', () => {
             mostrarFechas(estadioId);
         });
+
+        // Botón home
+        const btnHome = modalBody.querySelector('#btn-buy-home');
+        if (btnHome) {
+            btnHome.addEventListener('click', () => {
+                irAlInicioYCarrito(buyModal);
+            });
+        }
 
         // Botones de agregar al carrito
         modalBody.querySelectorAll('.add-cart-btn').forEach(btn => {

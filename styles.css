@@ -942,8 +942,8 @@ footer {
 
 .stadiums-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
   gap: 1rem;
   justify-items: center;
   align-items: center;
@@ -952,7 +952,7 @@ footer {
 }
 
 .st-center {
-  grid-column: 3 / 4;
+  grid-column: 2 / 3;
   grid-row: 2 / 3;
   width: 7.5rem;
   height: 7.5rem;
@@ -1001,17 +1001,17 @@ footer {
 }
 
 .st-river {
-  grid-column: 3 / 4;
+  grid-column: 2 / 3;
   grid-row: 1 / 2;
 }
 
 .st-velez {
-  grid-column: 4 / 5;
+  grid-column: 3 / 4;
   grid-row: 2 / 3;
 }
 
 .st-movistar {
-  grid-column: 2 / 3;
+  grid-column: 1 / 2;
   grid-row: 2 / 3;
 }
 
@@ -1099,6 +1099,17 @@ footer {
     width: 10rem;
     height: 10rem;
   }
+
+  .stadium-btn {
+    width: 8.5rem;
+    height: 8.5rem;
+  }
+
+  .st-center {
+    width: 6rem;
+    height: 6rem;
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 36em) {
@@ -1122,6 +1133,22 @@ footer {
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
   }
+
+  .stadiums-grid {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .stadium-btn {
+    width: 6.8rem;
+    height: 6.8rem;
+  }
+
+  .st-center {
+    width: 5rem;
+    height: 5rem;
+    font-size: 0.7rem;
+  }
 }
 
 @media (max-width: 25em) {
@@ -1141,4 +1168,67 @@ footer {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
+
+  .stadiums-grid {
+    gap: 0.25rem;
+  }
+
+  .stadium-btn {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .st-center {
+    width: 3.8rem;
+    height: 3.8rem;
+    font-size: 0.6rem;
+  }
 }
+
+/* NAVEGACIÓN Y BOTONES EN MODALES */
+.modal-nav-container {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-nav-btn {
+  font-size: 1.15rem;
+  color: #41403e;
+  cursor: pointer;
+  transition-property: color, background-color, transform, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 0.15rem solid #41403e;
+  background-color: #fafdff;
+  box-shadow: 0.15rem 0.2rem 0rem rgba(65, 64, 62, 0.15);
+}
+
+.modal-nav-btn:hover {
+  transform: translate(-0.02rem, -0.04rem) scale(1.08);
+  box-shadow: 0.2rem 0.25rem 0rem rgba(65, 64, 62, 0.3);
+}
+
+.modal-nav-btn.back-btn:hover {
+  color: #ffffff;
+  background-color: #e77045;
+  border-color: #e77045;
+}
+
+.modal-nav-btn.home-btn:hover {
+  color: #ffffff;
+  background-color: #2b78e4;
+  border-color: #2b78e4;
+}
+
+

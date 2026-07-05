@@ -85,7 +85,10 @@
 
     <div id="register-modal" class="modal-overlay">
       <div class="modal-body">
-        <span id="btn-register-close" class="modal-close-btn">&times;</span>
+        <div class="modal-nav-container">
+          <span id="btn-register-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
+          <span id="btn-register-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+        </div>
         <h2 class="modal-title">Únete a la Comunidad</h2>
 
         <form action="https://formspree.io/f/maqknaao" method="POST" class="draw-form">
@@ -125,7 +128,10 @@
     <!-- MODAL DE COMPRAS -->
     <div id="buy-modal" class="modal-overlay">
       <div class="modal-body buy-modal-body">
-        <span id="btn-buy-close" class="modal-close-btn">&times;</span>
+        <div class="modal-nav-container">
+          <span id="btn-buy-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
+          <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+        </div>
         <h2 class="modal-title">Comprar Entradas</h2>
         
         <div class="stadiums-grid">
@@ -148,7 +154,10 @@
 
     <div id="cart-modal" class="modal-overlay">
       <div class="modal-body cart-modal-body">
-        <span id="btn-cart-close" class="modal-close-btn">&times;</span>
+        <div class="modal-nav-container">
+          <span id="btn-cart-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
+          <span id="btn-cart-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+        </div>
         <h2 class="modal-title">Tu Carrito</h2>
         <div id="cart-items-container" class="cart-items-list"></div>
         <p id="cart-feedback" class="cart-feedback" aria-live="polite"></p>
