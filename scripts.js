@@ -240,20 +240,21 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBody.innerHTML = `
             <div class="modal-nav-container">
                 <span id="btn-buy-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
-                <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+                <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio"><i class="fa-solid fa-xmark"></i></span>
             </div>
             <h2 class="modal-title">Comprar Entradas</h2>
             <div class="stadiums-grid">
-                <button type="button" class="stadium-btn st-river" data-stadium="estadio-river" title="Estadio River">
-                    <img src="./images/estadios/river.png" alt="Estadio River">
-                </button>
-                <button type="button" class="st-center">Elige<br>Sede</button>
-                <button type="button" class="stadium-btn st-velez" data-stadium="estadio-velez" title="Estadio Vélez">
-                    <img src="./images/estadios/velez.png" alt="Estadio Velez">
-                </button>
                 <button type="button" class="stadium-btn st-movistar" data-stadium="estadio-movistar" title="Movistar Arena">
                     <img src="./images/estadios/movistar.png" alt="Estadio Movistar">
                 </button>
+                <button type="button" class="st-center">Elige<br>Sede</button>
+                <button type="button" class="stadium-btn st-river" data-stadium="estadio-river" title="Estadio River">
+                    <img src="./images/estadios/river.png" alt="Estadio River">
+                </button>
+                <button type="button" class="stadium-btn st-velez" data-stadium="estadio-velez" title="Estadio Vélez">
+                    <img src="./images/estadios/velez.png" alt="Estadio Velez">
+                </button>
+
             </div>
         `;
 
@@ -297,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBody.innerHTML = `
             <div class="modal-nav-container">
                 <span id="btn-buy-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
-                <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+                <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio"><i class="fa-solid fa-xmark"></i></span>
             </div>
             <h2 class="modal-title">Seleccionar Fecha</h2>
             <p class="buy-modal-subtitle">${estadio.show}</p>
@@ -380,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBody.innerHTML = `
             <div class="modal-nav-container">
                 <span id="btn-buy-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
-                <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+                <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio"><i class="fa-solid fa-xmark"></i></span>
             </div>
             <h2 class="modal-title">Elige Ubicación</h2>
             <p class="buy-modal-subtitle">${estadio.show} · ${fechaData.dia} · ${fechaData.horario}</p>

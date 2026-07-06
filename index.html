@@ -4,21 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tickets Ya - Entradas para Shows</title>
+  <title>Tickets Ya</title>
   <meta name="description"
-    content="Trabajo de pre entrega de front end. Sitio de ventas de entradas para espectáculos musicales de Pop y Rock." />
+    content="Trabajo Entrega Final Front end. Sitio de ventas de entradas para espectáculos musicales de Pop y Rock." />
   <meta name="robots" content="index, follow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
     rel="stylesheet" />
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" defer></script>
-
   <link rel="icon" type="image/png" sizes="48x48" href="./images/logo-48px.png" />
   <link rel="stylesheet" href="styles.css" />
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"> defer</script>
   <script src="bd.js" defer></script>
   <script src="scripts.js" defer></script>
 </head>
@@ -34,7 +33,7 @@
           </a>
         </li>
 
-        <li><a href="contacto.html" class="draw-btn">Contacto</a></li>
+        <li><a href="#" class="draw-btn">Contacto</a></li>
         <li>
           <span id="btn-register-open" class="draw-btn" style="cursor: pointer">Registrarse</span>
         </li>
@@ -72,13 +71,14 @@
 
     <div id="video-popup" class="popup-overlay">
       <div class="popup-body">
-        <span id="btn-popup-close" class="popup-close-btn">&times;</span>
+
+
         <div class="video-wrapper">
           <video controls preload="auto">
             <source src="./videos/Dua Lipa - Levitating _ 480p.mp4" type="video/mp4" />
             <track default kind="captions" srclang="es" src="./videos/captions.vtt" label="Español" />
             Tu navegador no soporta la reproducción de videos.
-          </video>
+          </video><span id="btn-popup-close" class="popup-close-btn"><i class="fa-solid fa-xmark"></i></span>
         </div>
       </div>
     </div>
@@ -86,8 +86,10 @@
     <div id="register-modal" class="modal-overlay">
       <div class="modal-body">
         <div class="modal-nav-container">
-          <span id="btn-register-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
-          <span id="btn-register-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+          <span id="btn-register-close" class="modal-nav-btn back-btn" title="Atrás"><i
+              class="fa-solid fa-arrow-left"></i></span>
+          <span id="btn-register-home" class="modal-nav-btn home-btn" title="Inicio"><i
+              class="fa-solid fa-xmark"></i></span>
         </div>
         <h2 class="modal-title">Únete a la Comunidad</h2>
 
@@ -125,38 +127,19 @@
       </div>
     </div>
 
-    <!-- MODAL DE COMPRAS -->
+
     <div id="buy-modal" class="modal-overlay">
       <div class="modal-body buy-modal-body">
-        <div class="modal-nav-container">
-          <span id="btn-buy-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
-          <span id="btn-buy-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
-        </div>
-        <h2 class="modal-title">Comprar Entradas</h2>
-        
-        <div class="stadiums-grid">
-           <button type="button" class="stadium-btn st-river" data-stadium="estadio-river" title="Estadio River">
-             <img src="./images/estadios/river.png" alt="Estadio River">
-           </button>
-           
-           <button type="button" class="st-center">Elige<br>Sede</button>
-           
-           <button type="button" class="stadium-btn st-velez" data-stadium="estadio-velez" title="Estadio Vélez">
-             <img src="./images/estadios/velez.png" alt="Estadio Velez">
-           </button>
-           
-           <button type="button" class="stadium-btn st-movistar" data-stadium="estadio-movistar" title="Movistar Arena">
-             <img src="./images/estadios/movistar.png" alt="Estadio Movistar">
-           </button>
-        </div>
       </div>
     </div>
 
     <div id="cart-modal" class="modal-overlay">
       <div class="modal-body cart-modal-body">
         <div class="modal-nav-container">
-          <span id="btn-cart-close" class="modal-nav-btn back-btn" title="Atrás"><i class="fa-solid fa-arrow-left"></i></span>
-          <span id="btn-cart-home" class="modal-nav-btn home-btn" title="Inicio / Carrito"><i class="fa-solid fa-house"></i></span>
+          <span id="btn-cart-close" class="modal-nav-btn back-btn" title="Atrás"><i
+              class="fa-solid fa-arrow-left"></i></span>
+          <span id="btn-cart-home" class="modal-nav-btn home-btn" title="Inicio"><i
+              class="fa-solid fa-xmark"></i></span>
         </div>
         <h2 class="modal-title">Tu Carrito</h2>
         <div id="cart-items-container" class="cart-items-list"></div>
