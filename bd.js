@@ -1,46 +1,28 @@
-//harckodeo de la base de datos de productos (estadios y shows)
+
 const API_URL = "https://api.jsonbin.io/v3/b/6a4458b4f5f4af5e294a6036?meta=false ";
 
-// const database = async function getDatabase() {
-		
-// 		try {
-// 			const resp = await axios.get(API_URL);
-		
-// 			return resp.data;
-// 		} catch (err) {
-// 			throw err;
-// 		}
-// 	}()
-
-// console.log(database.then((data) => console.log(data)));
-
-// const baseDatosEstadios = database.then((data) => data);
-
-// console.log(baseDatosEstadios);
-
-// let baseDatosEstadios
-let baseDatosEstadios = {}; // Inicializamos como un objeto vacío
+let baseDatosEstadios = {};
 axios.get(API_URL)
     .then(response => {
-        // Al usar meta=false, response.data es DIRECTAMENTE tu Array de estadios
-        const arrayOriginal = response.data; 
 
-        // Aplicamos el reduce directo sobre el array limpio
-        const estructuraDeseada = arrayOriginal.reduce((acumulador, item) => {
+        const respuestaAPI = response.data;
+
+        const respuestaEstructurada = respuestaAPI.reduce((acumulador, item) => {
             acumulador[item.id] = item;
             return acumulador;
         }, {});
 
-        console.log("Estructura limpia y transformada:", estructuraDeseada);
-        
-        // Pasas el objeto a tu lógica existente
-       baseDatosEstadios = estructuraDeseada;
+
+        baseDatosEstadios = respuestaEstructurada;
     })
     .catch(error => {
-        console.error("Error al obtener los datos limpios:", error);
+        console.error("Error al obtener los datos: ", error);
     });
 
-console.log("baseDatosEstadios después de la transformación:", baseDatosEstadios);
+
+
+
+// BASE DE DATOS HARDCODEADA
 // const baseDatosEstadios = {
 //     "estadio-river": {
 //         id: "estadio-river",

@@ -1001,18 +1001,18 @@ footer {
 }
 
 .st-river {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
+   grid-column: 1 / 2;
+  grid-row: 2 / 3; 
 }
 
 .st-velez {
-  grid-column: 3 / 4;
+ grid-column: 3 / 4;
   grid-row: 2 / 3;
 }
 
 .st-movistar {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+grid-column: 2 / 3;
+  grid-row: 1 / 2; 
 }
 
 /* MEDIA QUERIES */
@@ -1227,8 +1227,8 @@ footer {
 
 .modal-nav-btn.home-btn:hover {
   color: #ffffff;
-  background-color: #2b78e4;
-  border-color: #2b78e4;
+  background-color: #e77045;
+  border-color: #e77045;
 }
 
 
