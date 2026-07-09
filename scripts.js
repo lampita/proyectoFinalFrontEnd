@@ -1,3 +1,4 @@
+//CONFIGURACION INICIAL Y FORMATEO. FUNCIONES GLOBALES.
 let cartUi = {
     badge: null,
     modal: null,
@@ -35,6 +36,7 @@ function irAlInicioYCarrito(modal) {
     }
 }
 
+// RENDERIZADO DEL CARRITO Y SINCRONIZACION CON LA UI
 function renderCartModal() {
     if (!cartUi.itemsContainer || !cartUi.total) return;
 
@@ -80,6 +82,7 @@ function syncCartUI() {
 
     renderCartModal();
 }
+// INICIALIZACION DE EVENTOS DEL DOM
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -135,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Referencias al Modal de Compras
+
     const btnBuyOpen = document.getElementById('btn-buy-open');
     const buyModal = document.getElementById('buy-modal');
 
@@ -234,7 +237,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     syncCartUI();
 
-    // Renderiza el paso 1: selección de estadio
+    // FLUJO DE COMPRAS - PASO 1 - MOSTRAR ESTADIOS
+
     function mostrarEstadios() {
         const modalBody = buyModal.querySelector('.modal-body');
         modalBody.innerHTML = `
@@ -258,12 +262,11 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        // Botón cerrar: cierra el modal completamente
         modalBody.querySelector('#btn-buy-close').addEventListener('click', () => {
             buyModal.classList.remove('active');
         });
 
-        // Botón home
+
         const btnHome = modalBody.querySelector('#btn-buy-home');
         if (btnHome) {
             btnHome.addEventListener('click', () => {
@@ -271,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Botones de estadios: van al paso 2
+
         modalBody.querySelectorAll('.stadium-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 mostrarFechas(btn.getAttribute('data-stadium'));
@@ -279,7 +282,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Renderiza el paso 2: selección de fecha
+    // FLUJO DE COMPRAS - PASO 2 - MOSTRAR FECHAS
+
     function mostrarFechas(estadioId) {
         const estadio = baseDatosEstadios[estadioId];
         if (!estadio) return;
@@ -307,12 +311,11 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        // Botón cerrar: vuelve al paso 1 (estadios)
         modalBody.querySelector('#btn-buy-close').addEventListener('click', () => {
             mostrarEstadios();
         });
 
-        // Botón home
+
         const btnHome = modalBody.querySelector('#btn-buy-home');
         if (btnHome) {
             btnHome.addEventListener('click', () => {
@@ -320,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Listeners de las fechas → paso 3
+
         modalBody.querySelectorAll('.fecha-btn').forEach(fechaBtn => {
             fechaBtn.addEventListener('click', () => {
                 const estadioId = fechaBtn.getAttribute('data-estadio');
@@ -329,8 +332,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    // FLUJO DE COMPRAS - PASO 3 - MOSTRAR UBICACIONES
 
-    // Renderiza el paso 3: selección de ubicación
     function mostrarUbicaciones(estadioId, fecha) {
         const estadio = baseDatosEstadios[estadioId];
         if (!estadio) return;
@@ -394,12 +397,12 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        // Botón cerrar: vuelve al paso 2 (fechas)
+
         modalBody.querySelector('#btn-buy-close').addEventListener('click', () => {
             mostrarFechas(estadioId);
         });
 
-        // Botón home
+
         const btnHome = modalBody.querySelector('#btn-buy-home');
         if (btnHome) {
             btnHome.addEventListener('click', () => {
@@ -407,12 +410,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Botones de agregar al carrito
+
         modalBody.querySelectorAll('.add-cart-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const sectorKey = btn.getAttribute('data-sector');
                 const subKey = btn.getAttribute('data-subsector');
-                // Buscar el input de cantidad correspondiente
+
                 const input = modalBody.querySelector(
                     `input[data-sector="${sectorKey}"][data-subsector="${subKey}"]`
                 );
@@ -428,20 +431,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     precio: parseFloat(input.getAttribute('data-precio'))
                 });
 
-                // Feedback visual al usuario
+
                 btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Agregado!';
                 btn.disabled = true;
                 setTimeout(() => {
                     btn.innerHTML = '<i class="fa-solid fa-cart-plus"></i> Agregar';
                     btn.disabled = false;
-                }, 1500);
+                }, 400);
             });
         });
     }
 });
 
-// --- Lógica del Carrito de Compras ---
-
+// LOGICA CARRITO DE COMPRAS
 let cartItems = [];
 const storedCart = localStorage.getItem('shoppingCart');
 if (storedCart) {
