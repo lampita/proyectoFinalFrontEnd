@@ -4,14 +4,12 @@ const API_URL = "https://api.jsonbin.io/v3/b/6a4458b4f5f4af5e294a6036?meta=false
 let baseDatosEstadios = {};
 axios.get(API_URL)
     .then(response => {
-
         const respuestaAPI = response.data;
 
         const respuestaEstructurada = respuestaAPI.reduce((acumulador, item) => {
             acumulador[item.id] = item;
             return acumulador;
         }, {});
-
 
         baseDatosEstadios = respuestaEstructurada;
     })

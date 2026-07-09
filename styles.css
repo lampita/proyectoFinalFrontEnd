@@ -10,6 +10,7 @@ body {
   color: #41403e;
 }
 
+
 h1,
 h2,
 h3 {
@@ -95,12 +96,190 @@ h3 {
   background-color: rgba(65, 64, 62, 0.05);
 }
 
-.cart-btn {
+/* SECCIÓN HERO TRIÁNGULOS*/
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 4.56rem);
+  min-height: 34.37rem;
+  overflow: hidden;
+  background-image: linear-gradient(135deg, #1c1c1c 0%, #0d0d0d 100%);
+}
+
+.layer-png-principal,
+.layer-triangulo-fondo {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+}
+
+/* FONDO */
+.layer-triangulo-fondo {
+  z-index: 1;
+  background-image: linear-gradient(45deg, #ffffff 0%, #4a4a4a 100%);
+  clip-path: polygon(-25% 60%, 120% -20%, 50% 105%);
+}
+
+/* FRENTE MAIN */
+.layer-png-principal {
+  z-index: 2;
+  background-image: url("./images/main.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  clip-path: polygon(-20% 20%, 70% -10%, 95% 120%);
+}
+
+
+/* TITULO*/
+.hero-content {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  bottom: 0rem;
+  left: 0rem;
+  z-index: 10;
+  padding-top: 3.75rem;
+  padding-right: 2.5rem;
+  padding-bottom: 3.75rem;
+  padding-left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.hero-text {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.hero-section h1 {
+  font-size: 5.5rem;
+  line-height: 0.95;
+  color: #242322;
+  margin-bottom: 0.93rem;
+  text-shadow: 0.12rem 0.12rem 0rem #fff;
+}
+
+.hero-section p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #41403e;
+  text-shadow: 0.06rem 0.06rem 0rem #fff;
+}
+
+
+/* BOTÓN CALL TO ACTION */
+.boton-cta {
+  pointer-events: auto;
+  position: absolute;
+  bottom: 10%;
+  right: 15%;
+  width: 12.5rem;
+  height: 12.5rem;
+  background-color: #e0e0d5;
+  border-width: 0.18rem;
+  border-style: solid;
+  border-color: #41403e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration-line: none;
+  Font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  color: #41403e;
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1.2;
+  box-shadow: 0.5rem 0.5rem 0rem rgba(65, 64, 62, 0.2);
+  transition-property: transform, box-shadow, background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+.boton-cta:hover {
+  transform: scale(1.05) translate(0.12rem, 0.12rem);
+  box-shadow: 0.25rem 0.25rem 0rem rgba(65, 64, 62, 0.4);
+  background-color: #f0f0d8;
+}
+
+/* BOTÓN DE VIDEO */
+.boton-video-heartbeat {
+  pointer-events: auto;
+  position: absolute;
+  bottom: 12%;
+  left: 12%;
+  width: 6.25rem;
+  /* ~100px */
+  height: 6.25rem;
+  background-color: #ff4500;
+  border-width: 0.18rem;
+  border-style: solid;
+  border-color: #41403e;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f0f0d8;
+  font-size: 1.8rem;
+  padding-left: 0.37rem;
+  box-shadow: 0.37rem 0.37rem 0rem rgba(65, 64, 62, 0.25);
+  transition-property: transform, box-shadow, background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  animation-name: latidoIntermitente;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.boton-video-heartbeat:hover {
+  animation-play-state: paused;
+  transform: scale(1.1) translate(0.12rem, 0.12rem);
+  box-shadow: 0.12rem 0.12rem 0rem rgba(65, 64, 62, 0.4);
+  background-color: #ff5722;
+}
+
+@keyframes latidoIntermitente {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  12% {
+    transform: scale(1.12);
+  }
+
+  24% {
+    transform: scale(1);
+  }
+
+  36% {
+    transform: scale(1.12);
+  }
+
+  48%,
+  90% {
+    transform: scale(1);
+  }
+}
+
+
+/*CARRITO*/
+
+/* .cart-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   position: relative;
-}
+} */
 
 .cart-badge {
   display: inline-flex;
@@ -238,6 +417,7 @@ h3 {
   flex-wrap: wrap;
 }
 
+
 .qty-btn,
 .remove-item-btn {
   border: 0.18rem solid #41403e;
@@ -261,174 +441,7 @@ h3 {
   color: #b63b1d;
 }
 
-/* SECCIÓN HERO TRIÁNGULOS ENCIMADOS */
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 4.56rem);
-  min-height: 34.37rem;
-  overflow: hidden;
-  background-image: linear-gradient(135deg, #1c1c1c 0%, #0d0d0d 100%);
-}
-
-.layer-png-principal,
-.layer-triangulo-fondo {
-  position: absolute;
-  top: 0rem;
-  right: 0rem;
-  bottom: 0rem;
-  left: 0rem;
-}
-
-/* FONDO */
-.layer-triangulo-fondo {
-  z-index: 1;
-  background-image: linear-gradient(45deg, #ffffff 0%, #4a4a4a 100%);
-  clip-path: polygon(-25% 60%, 120% -20%, 50% 105%);
-}
-
-/* FRENTE MAIN */
-.layer-png-principal {
-  z-index: 2;
-  background-image: url("./images/main.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  clip-path: polygon(-20% 20%, 70% -10%, 95% 120%);
-}
-
-/* TITULO Y BOTON PRINCIPAL */
-.hero-content {
-  position: absolute;
-  top: 0rem;
-  right: 0rem;
-  bottom: 0rem;
-  left: 0rem;
-  z-index: 10;
-  padding-top: 3.75rem;
-  padding-right: 2.5rem;
-  padding-bottom: 3.75rem;
-  padding-left: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  pointer-events: none;
-}
-
-.hero-text {
-  text-align: center;
-  margin-top: 2.5rem;
-}
-
-.hero-section h1 {
-  font-size: 5.5rem;
-  line-height: 0.95;
-  color: #242322;
-  margin-bottom: 0.93rem;
-  text-shadow: 0.12rem 0.12rem 0rem #fff;
-}
-
-.hero-section p {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #41403e;
-  text-shadow: 0.06rem 0.06rem 0rem #fff;
-}
-
-/* BOTÓN CALL TO ACTION */
-.boton-cta {
-  pointer-events: auto;
-  position: absolute;
-  bottom: 10%;
-  right: 15%;
-  width: 12.5rem; /* ~200px */
-  height: 12.5rem;
-  background-color: #e0e0d5;
-  border-width: 0.18rem;
-  border-style: solid;
-  border-color: #41403e;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  text-decoration-line: none;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 700;
-  color: #41403e;
-  text-transform: uppercase;
-  font-size: 1rem;
-  line-height: 1.2;
-  box-shadow: 0.5rem 0.5rem 0rem rgba(65, 64, 62, 0.2);
-  transition-property: transform, box-shadow, background-color;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-}
-
-.boton-cta:hover {
-  transform: scale(1.05) translate(0.12rem, 0.12rem);
-  box-shadow: 0.25rem 0.25rem 0rem rgba(65, 64, 62, 0.4);
-  background-color: #f0f0d8;
-}
-
-/* BOTÓN DE VIDEO */
-.boton-video-heartbeat {
-  pointer-events: auto;
-  position: absolute;
-  bottom: 12%;
-  left: 12%;
-  width: 6.25rem; /* ~100px */
-  height: 6.25rem;
-  background-color: #ff4500;
-  border-width: 0.18rem;
-  border-style: solid;
-  border-color: #41403e;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #f0f0d8;
-  font-size: 1.8rem;
-  padding-left: 0.37rem; /* ~6px */
-  box-shadow: 0.37rem 0.37rem 0rem rgba(65, 64, 62, 0.25);
-  transition-property: transform, box-shadow, background-color;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-  animation-name: latidoIntermitente;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-.boton-video-heartbeat:hover {
-  animation-play-state: paused;
-  transform: scale(1.1) translate(0.12rem, 0.12rem);
-  box-shadow: 0.12rem 0.12rem 0rem rgba(65, 64, 62, 0.4);
-  background-color: #ff5722;
-}
-
-@keyframes latidoIntermitente {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  12% {
-    transform: scale(1.12);
-  }
-  24% {
-    transform: scale(1);
-  }
-  36% {
-    transform: scale(1.12);
-  }
-  48%,
-  90% {
-    transform: scale(1);
-  }
-}
-
-/* POPUP */
+/* POPUP VIDEO PROMO */
 .popup-overlay {
   position: fixed;
   top: 0rem;
@@ -517,6 +530,54 @@ h3 {
   object-fit: cover;
 }
 
+/* NAVEGACIÓN Y BOTONES EN MODALES */
+.modal-nav-container {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-nav-btn {
+  font-size: 1.15rem;
+  color: #41403e;
+  cursor: pointer;
+  transition-property: color, background-color, transform, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 0.15rem solid #41403e;
+  background-color: #fafdff;
+  box-shadow: 0.15rem 0.2rem 0rem rgba(65, 64, 62, 0.15);
+}
+
+.modal-nav-btn:hover {
+  transform: translate(-0.02rem, -0.04rem) scale(1.08);
+  box-shadow: 0.2rem 0.25rem 0rem rgba(65, 64, 62, 0.3);
+}
+
+.modal-nav-btn.back-btn:hover {
+  color: #ffffff;
+  background-color: #e77045;
+  border-color: #e77045;
+}
+
+.modal-nav-btn.home-btn:hover {
+  color: #ffffff;
+  background-color: #e77045;
+  border-color: #e77045;
+}
+
+
+
 /* MODAL DE REGISTRO */
 .modal-overlay {
   position: fixed;
@@ -595,6 +656,16 @@ h3 {
   text-shadow: 0.06rem 0.06rem 0rem #fff;
 }
 
+
+
+
+
+
+
+
+
+
+
 /* FORMULARIO */
 .draw-form {
   display: flex;
@@ -671,85 +742,7 @@ h3 {
   box-shadow: 0.12rem 0.12rem 0rem rgba(65, 64, 62, 0.4);
 }
 
-/* FOOTER  */
-footer {
-  background-color: #f0f0d8;
-  border-top-width: 0.25rem;
-  border-top-style: solid;
-  border-top-color: #41403e;
-  padding-top: 1.87rem;
-  padding-right: 1.25rem;
-  padding-bottom: 1.87rem;
-  padding-left: 1.25rem;
-  margin-top: auto;
-}
-
-.footer-container {
-  max-width: 75rem;
-  margin-top: 0rem;
-  margin-right: auto;
-  margin-bottom: 0rem;
-  margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.footer-copy {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #41403e;
-  text-transform: uppercase;
-  letter-spacing: 0.03rem;
-}
-
-.footer-socials {
-  display: flex;
-  gap: 0.93rem;
-}
-
-.social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.81rem;
-  height: 2.81rem;
-  background-color: transparent;
-  color: #41403e;
-  font-size: 1.2rem;
-  text-decoration-line: none;
-  border-width: 0.18rem;
-  border-style: solid;
-  border-color: #41403e;
-  border-radius: 50% 45% 52% 48% / 48% 52% 45% 50%;
-  box-shadow: 0.25rem 0.31rem 0rem rgba(65, 64, 62, 0.15);
-  transition-property: all;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-}
-
-.social-btn:hover {
-  transform: translate(0.06rem, 0.12rem);
-  box-shadow: 0.06rem 0.12rem 0rem rgba(65, 64, 62, 0.3);
-  background-color: rgba(65, 64, 62, 0.08);
-}
-
-.social-btn:hover .fa-instagram {
-  color: #e1306c;
-}
-.social-btn:hover .fa-facebook {
-  color: #1877f2;
-}
-.social-btn:hover .fa-x-twitter {
-  color: #000000;
-}
-.social-btn:hover .fa-youtube {
-  color: #ff0000;
-}
-
-/* STADIUMS GRID - MODAL COMPRAS */
+/* MODAL COMPRAS - PASO 1 SELECCIONAR ESTADIO. */
 .buy-modal-body {
   max-width: 45rem;
 }
@@ -766,6 +759,82 @@ footer {
   letter-spacing: 0.02rem;
 }
 
+.stadiums-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.st-center {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  background-color: #e0e0d5;
+  border: 0.18rem solid #41403e;
+  box-shadow: 0.37rem 0.5rem 0rem rgba(65, 64, 62, 0.15);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  color: #41403e;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  cursor: default;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.stadium-btn {
+  width: 10.8rem;
+  height: 10.8rem;
+  border-radius: 50%;
+  border: 0.25rem solid #fdf2d7;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0.37rem 0.37rem 0rem rgba(65, 64, 62, 0.2);
+  background-color: #fff;
+  padding: 0;
+  z-index: 5;
+}
+
+.stadium-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stadium-btn:hover {
+  transform: scale(1.1) translate(0.06rem, 0.06rem);
+  box-shadow: 0.12rem 0.12rem 0rem rgba(65, 64, 62, 0.4);
+
+}
+
+.st-river {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.st-velez {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.st-movistar {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+/* MODAL COMPRAS - PASO 2 SELECCIONAR FECHA. */
 .fechas-grid {
   display: flex;
   justify-content: center;
@@ -820,7 +889,7 @@ footer {
   color: #ff4500;
 }
 
-/* PASO 3: UBICACIONES */
+/* MODAL DE COMPRAS - PASO 3: SELECCIONAR UBICACIONES. */
 .ubicaciones-layout {
   display: flex;
   flex-direction: column;
@@ -940,79 +1009,86 @@ footer {
   transform: none;
 }
 
-.stadiums-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 1rem;
-  justify-items: center;
-  align-items: center;
-  margin-top: 1.5rem;
-  padding-bottom: 1rem;
+
+/* FOOTER  */
+footer {
+  background-color: #f0f0d8;
+  border-top-width: 0.25rem;
+  border-top-style: solid;
+  border-top-color: #41403e;
+  padding-top: 1.87rem;
+  padding-right: 1.25rem;
+  padding-bottom: 1.87rem;
+  padding-left: 1.25rem;
+  margin-top: auto;
 }
 
-.st-center {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  width: 7.5rem;
-  height: 7.5rem;
-  border-radius: 50%;
-  background-color: #e0e0d5;
-  border: 0.18rem solid #41403e;
-  box-shadow: 0.37rem 0.5rem 0rem rgba(65, 64, 62, 0.15);
+.footer-container {
+  max-width: 75rem;
+  margin-top: 0rem;
+  margin-right: auto;
+  margin-bottom: 0rem;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer-copy {
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 0.9rem;
   color: #41403e;
   text-transform: uppercase;
-  font-size: 0.95rem;
-  cursor: default;
-  transition: all 0.2s ease;
+  letter-spacing: 0.03rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.93rem;
+}
+
+.social-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  z-index: 10;
+  width: 2.81rem;
+  height: 2.81rem;
+  background-color: transparent;
+  color: #41403e;
+  font-size: 1.2rem;
+  text-decoration-line: none;
+  border-width: 0.18rem;
+  border-style: solid;
+  border-color: #41403e;
+  border-radius: 50% 45% 52% 48% / 48% 52% 45% 50%;
+  box-shadow: 0.25rem 0.31rem 0rem rgba(65, 64, 62, 0.15);
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
 }
 
-.stadium-btn {
-  width: 10.8rem;
-  height: 10.8rem;
-  border-radius: 50%;
-  border: 0.25rem solid #fdf2d7;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0.37rem 0.37rem 0rem rgba(65, 64, 62, 0.2);
-  background-color: #fff;
-  padding: 0;
-  z-index: 5;
+.social-btn:hover {
+  transform: translate(0.06rem, 0.12rem);
+  box-shadow: 0.06rem 0.12rem 0rem rgba(65, 64, 62, 0.3);
+  background-color: rgba(65, 64, 62, 0.08);
 }
 
-.stadium-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.social-btn:hover .fa-instagram {
+  color: #e1306c;
 }
 
-.stadium-btn:hover {
-  transform: scale(1.1) translate(0.06rem, 0.06rem);
-  box-shadow: 0.12rem 0.12rem 0rem rgba(65, 64, 62, 0.4);
-  /* Mantiene el borde negro */
+.social-btn:hover .fa-facebook {
+  color: #1877f2;
 }
 
-.st-river {
-   grid-column: 1 / 2;
-  grid-row: 2 / 3; 
+.social-btn:hover .fa-x-twitter {
+  color: #000000;
 }
 
-.st-velez {
- grid-column: 3 / 4;
-  grid-row: 2 / 3;
-}
-
-.st-movistar {
-grid-column: 2 / 3;
-  grid-row: 1 / 2; 
+.social-btn:hover .fa-youtube {
+  color: #ff0000;
 }
 
 /* MEDIA QUERIES */
@@ -1184,51 +1260,3 @@ grid-column: 2 / 3;
     font-size: 0.6rem;
   }
 }
-
-/* NAVEGACIÓN Y BOTONES EN MODALES */
-.modal-nav-container {
-  position: absolute;
-  top: 1rem;
-  right: 1.25rem;
-  display: flex;
-  gap: 0.65rem;
-  align-items: center;
-  z-index: 100;
-}
-
-.modal-nav-btn {
-  font-size: 1.15rem;
-  color: #41403e;
-  cursor: pointer;
-  transition-property: color, background-color, transform, box-shadow;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  border: 0.15rem solid #41403e;
-  background-color: #fafdff;
-  box-shadow: 0.15rem 0.2rem 0rem rgba(65, 64, 62, 0.15);
-}
-
-.modal-nav-btn:hover {
-  transform: translate(-0.02rem, -0.04rem) scale(1.08);
-  box-shadow: 0.2rem 0.25rem 0rem rgba(65, 64, 62, 0.3);
-}
-
-.modal-nav-btn.back-btn:hover {
-  color: #ffffff;
-  background-color: #e77045;
-  border-color: #e77045;
-}
-
-.modal-nav-btn.home-btn:hover {
-  color: #ffffff;
-  background-color: #e77045;
-  border-color: #e77045;
-}
-
-
